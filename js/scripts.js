@@ -88,5 +88,28 @@ Type.prototype.getPrice = function()){
   return price;
 }
 
-
+//-----------------------------------------------------------
+// arrays for getPrice
+var sizes = [["Large", 10], ["Medium", 8], ["Small", 6]];
+var toppings = [["Bacon", 1.5], ["Chicken", 1.5], ["Cheese", 1], ["Onion", 0.75]];
+var types = [["Cheese", 0], ["Peperroni", 0.5], ["Custom", -0.5]];
+//-----------------------------------------------------------
 var order = new Order();
+// ----------------------------------------------------------
+// user-interface logic
+
+$(document).ready(function() {
+
+  $("#form").submit(function(event){
+    event.preventDefault();
+
+    var size = new Size(name, price);
+    var type = new Type(name, price);
+
+    var pizza = new Pizza(type, size);
+    order.addPizza(pizza);
+
+    console.log(order);
+
+    $("#order").show();
+  });

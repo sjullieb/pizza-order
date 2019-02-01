@@ -1,4 +1,4 @@
-function Order{
+function Order(){
   this.pizzas = [],
   this.currentId = 0;
 }
@@ -7,14 +7,14 @@ Order.prototype.getPrice = function(){
   var price = 0;
   this.pizzas.forEach(function(pizza){
     price += pizza.getPrice();
-  return price;
   });
+  return price;
 }
 
 Order.prototype.addPizza = function(pizza){
   pizza.id = this.currentId;
   this.currentId += 1;
-  this.pizzas.push(pizzas);
+  this.pizzas.push(pizza);
 }
 
 Order.prototype.findPizza = function(id){
@@ -31,23 +31,24 @@ Order.prototype.findPizza = function(id){
 function Pizza(type, size){
   this.type = type,
   this.size = size,
-  this.toppings = []
+  this.toppings = [],
+  this.currentToppingId = 0
 }
 
 Pizza.prototype.getPrice = function(){
   var price = 0;
-  this.toppingss.forEach(function(toppings){
+  this.toppings.forEach(function(toppings){
     price += this.toppings.getPrice();
-  price += this.size.getPrice();
-  price += this.type.getPrice();
-  return price;
+    price += this.size.getPrice();
+    price += this.type.getPrice();
   });
+  return price;
 }
 
 Pizza.prototype.addTopping = function(topping){
-  topping.id = this.currentId;
-  this.currentId += 1;
-  this.toppings.push(toppings);
+  topping.id = this.currentToppingId;
+  this.currentToppingId += 1;
+  this.toppings.push(topping);
 }
 
 Pizza.prototype.findTopping = function(id){
@@ -66,7 +67,7 @@ function Topping (name, price){
   this.price = price
 }
 
-Toppings.prototype.getPrice = function()){
+Topping.prototype.getPrice = function(){
   return price;
 }
 
@@ -75,7 +76,7 @@ function Size (name, price){
   this.price = price
 }
 
-Size.prototype.getPrice = function()){
+Size.prototype.getPrice = function(){
   return price;
 }
 
@@ -84,7 +85,7 @@ function Type (name, price){
   this.price = price
 }
 
-Type.prototype.getPrice = function()){
+Type.prototype.getPrice = function(){
   return price;
 }
 
@@ -103,13 +104,27 @@ $(document).ready(function() {
   $("#form").submit(function(event){
     event.preventDefault();
 
-    var size = new Size(name, price);
-    var type = new Type(name, price);
-
+    var sizeIndex = parseInt($("input:radio[name=size]:checked").val());
+    var typeIndex = parseInt($("input:radio[name=type]:checked").val());
+    console.log(sizes);
+    console.log(sizeIndex);
+    console.log(sizes[sizeIndex][0]);
+    var size = new Size(sizes[sizeIndex][0], sizes[sizeIndex][1]);
+    var type = new Type(types[typeIndex][0], types[typeIndex][1]);
     var pizza = new Pizza(type, size);
+
+    $("input:checkbox[name='toppings']:checked").each(function() {
+      var id = parseInt($(this).val());
+      var topping = new Topping(toppings[id][0], toppings[id][1]);
+      pizza.addTopping(topping);
+    });
+
     order.addPizza(pizza);
+
+
 
     console.log(order);
 
     $("#order").show();
   });
+});

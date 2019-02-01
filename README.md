@@ -2,8 +2,7 @@
 #### _The application allows to order pizza, 02/01/2019_
 #### By _**Yulia Shidlovskaya**_
 ## Description
-This is a web application for pizzeria company that allows user to choose the size of the pizza and add toppings. It calculates the price based on the user's selection and shows the user final order.
-
+This is a web application for pizza company that allows a user to choose the size of the pizza and one or more individual toppings. It calculates the price and shows the user final order.
 
 ## Specifications
 | Behavior                            | Input Examples | Output Examples  |

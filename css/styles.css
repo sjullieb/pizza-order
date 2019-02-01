@@ -1,3 +1,7 @@
-.order, .address {
+.order, .address, .show-pizza {
   display: none;
+}
+
+.bold{
+  font-weight: bold;
 }

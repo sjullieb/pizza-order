@@ -87,3 +87,6 @@ function Type (name, price){
 Type.prototype.getPrice = function()){
   return price;
 }
+
+
+var order = new Order();

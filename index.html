@@ -6,9 +6,72 @@
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/scripts.js"></script>
 
-    <title></title>
+    <title>Pizzeria</title>
   </head>
   <body>
+    <h1>Welcome to Pizzeria!</h1>
+    <div class="container">
+      <div class="pizza">
+        <h3>Make your order</h3>
+        <form class="form">
+          <div class="form-group">
+            <label for="size">Size:</label>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="size" value="large" checked>
+                  Large
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="size" value="medium">
+                  Medium
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="size" value="small">
+                  Medium
+                </label>
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="type">Type:</label>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="type" value="cheese" checked>
+                  Cheese
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="type" value="margarita">
+                  Margaritta
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="type" value="custom">
+                  Custom
+                </label>
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="">Toppings:</label><br>
+            <input type="checkbox" name="ham" value="ham">Ham<br>
+            <input type="checkbox" name="onion" value="onion">Onion<br>
+          </div>
 
+          <button type="submit" id="addPizza" name="button">Add</button>
+        </form>
+
+      </div>
+      <div class="order">
+        <button type="button" id="order" name="button">Order</button>
+      </div>
+      <div class="address">
+
+      </div>
+    </div>
   </body>
 </html>

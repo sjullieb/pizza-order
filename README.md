@@ -5,8 +5,10 @@
 This is a web application for pizza company that allows a user to choose the size of the pizza and one or more individual toppings. It calculates the price and shows the user final order.
 
 ## Specifications
-| Behavior                            | Input Examples | Output Examples  |
-|-------------------------------------|----------------|------------------|
+The user chooses type, size and toppings for the pizza they'd like to order.
+After clicking Add button the pizza is be placed in the order list. The total price is calculated and shown underneath.
+Ordered pizzas can be clicked for details.
+Pizza can be removed from the order.
 
 ## Setup/Installation Requirements
 

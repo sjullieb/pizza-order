@@ -128,7 +128,7 @@ function displayOrder() {
     var pizzasList = $("ul#pizzas");
     var htmlForPizzasInfo = "";
     order.pizzas.forEach(function(pizza) {
-      htmlForPizzasInfo += "<li id=" + pizza.id + ">" + pizza.type.name + " " + (pizza.getPrice()).toString() + "</li>";
+      htmlForPizzasInfo += "<li id=" + pizza.id + ">" + pizza.type.name + " $" + (pizza.getPrice()).toString() + "</li>";
     });
     pizzasList.html(htmlForPizzasInfo);
 
@@ -143,12 +143,12 @@ function displayPizza(id) {
   $(".show-pizza").show();
   $("#type-of-pizza").html(pizza.type.name);
   $("#size-of-pizza").html(pizza.size.name);
-  $("#pizza-price").html(pizza.getPrice().toString());
+  $("#pizza-price").html("$" + pizza.getPrice().toString());
   displayToppings(pizza);
 
   var buttons = $("#buttons");
   buttons.empty();
-  buttons.append("<button class='deleteButton' id=" + pizza.id + ">Delete</button>");
+  buttons.append("<button class='deleteButton btn btn-origin' id=" + pizza.id + ">Delete</button>");
 };
 
 function displayToppings(pizza) {
@@ -157,6 +157,9 @@ function displayToppings(pizza) {
   pizza.toppings.forEach(function(topping) {
     htmlForToppingsInfo += "<li>" + topping.name + "</li>";
   });
+  if (htmlForToppingsInfo === "") {
+    htmlForToppingsInfo = "NO";
+  }
   toppingsList.html(htmlForToppingsInfo);
 };
 

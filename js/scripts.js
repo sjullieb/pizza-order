@@ -208,7 +208,7 @@ $(document).ready(function() {
     $(".order").show();
   });
 
-  $(".order").click(function(){
+  $("#order").click(function(){
     alert("Thank you for your order!");
     location.reload();
   });

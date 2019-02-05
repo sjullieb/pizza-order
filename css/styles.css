@@ -6,6 +6,10 @@
   font-weight: bold;
 }
 
+.checkbox_label {
+  font-weight: normal;
+}
+
 body {
   color: #281A19;
   background-color: #FE431F;

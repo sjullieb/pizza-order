@@ -128,11 +128,11 @@ function displayOrder() {
     var pizzasList = $("ul#pizzas");
     var htmlForPizzasInfo = "";
     order.pizzas.forEach(function(pizza) {
-      htmlForPizzasInfo += "<li id=" + pizza.id + ">" + pizza.type.name + " $" + (pizza.getPrice()).toString() + "</li>";
+      htmlForPizzasInfo += "<li id=" + pizza.id + ">" + pizza.type.name + " $" + (pizza.getPrice().toFixed(2)).toString() + "</li>";
     });
     pizzasList.html(htmlForPizzasInfo);
 
-    $("#order-price").text("$" + order.getPrice().toString());
+    $("#order-price").text("$" + order.getPrice().toFixed(2).toString());
   }
 };
 
@@ -143,7 +143,7 @@ function displayPizza(id) {
   $(".show-pizza").show();
   $("#type-of-pizza").html(pizza.type.name);
   $("#size-of-pizza").html(pizza.size.name);
-  $("#pizza-price").html("$" + pizza.getPrice().toString());
+  $("#pizza-price").html("$" + pizza.getPrice().toFixed(2).toString());
   displayToppings(pizza);
 
   var buttons = $("#buttons");

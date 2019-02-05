@@ -151,6 +151,14 @@ function displayPizza(id) {
   buttons.append("<button class='deleteButton btn btn-origin' id=" + pizza.id + ">Delete</button>");
 };
 
+function resetPizza(){
+  $("input:checkbox[name='toppings']").each(function() {
+    this.checked = false;
+  });
+  $("input:radio[name=size]")[0].checked = true;
+  $("input:radio[name=type]")[0].checked = true;
+};
+
 function displayToppings(pizza) {
   var toppingsList = $("ul#toppings-details");
   var htmlForToppingsInfo = "";
@@ -201,7 +209,7 @@ $(document).ready(function() {
     });
 
     order.addPizza(pizza);
-
+    resetPizza();
     displayOrder();
     console.log(order);
 
